@@ -1,0 +1,535 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Quicksand:wght@400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #080d25;
+    font-family: 'Quicksand', sans-serif;
+    overflow-x: hidden;
+}
+
+/* LANGIT */
+
+.sky {
+    position: relative;
+
+    min-height: 100vh;
+    min-height: 100svh;
+
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background: linear-gradient(
+        180deg,
+        #080d25 0%,
+        #111c3b 45%,
+        #28385e 100%
+    );
+}
+
+/* BINTANG */
+
+.stars {
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+}
+
+.star {
+    position: absolute;
+
+    width: 2px;
+    height: 2px;
+
+    background: #ffffff;
+
+    border-radius: 50%;
+
+    box-shadow: 0 0 5px white;
+
+    animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle {
+
+    from {
+        opacity: 0.2;
+        transform: scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+
+}
+
+/* BULAN */
+
+.moon {
+    position: absolute;
+
+    top: 9%;
+    right: 14%;
+
+    width: 90px;
+    height: 90px;
+
+    border-radius: 50%;
+
+    background: #fff4d6;
+
+    box-shadow:
+        0 0 25px #fff4d6,
+        0 0 55px rgba(255, 244, 214, 0.5),
+        0 0 100px rgba(255, 244, 214, 0.2);
+
+    animation: moonFloat 5s ease-in-out infinite;
+}
+
+@keyframes moonFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+}
+
+/* METEOR */
+
+.meteor {
+    position: absolute;
+
+    top: 15%;
+    left: -120px;
+
+    width: 120px;
+    height: 2px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.9)
+    );
+
+    transform: rotate(35deg);
+
+    animation: shooting 8s linear infinite;
+
+    opacity: 0;
+}
+
+@keyframes shooting {
+
+    0%, 75% {
+        transform: translate(0, 0) rotate(35deg);
+        opacity: 0;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(120vw, 70vh) rotate(35deg);
+        opacity: 0;
+    }
+
+}
+
+/* KONTEN */
+
+.content {
+    position: relative;
+
+    z-index: 5;
+
+    width: 90%;
+    max-width: 650px;
+
+    padding: 40px 15px;
+
+    text-align: center;
+
+    color: white;
+}
+
+.subtitle {
+    font-size: 11px;
+
+    letter-spacing: 5px;
+
+    color: #b9c9ed;
+
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: clamp(38px, 8vw, 65px);
+
+    font-weight: 500;
+
+    margin-bottom: 20px;
+
+    color: #fff7e7;
+
+    text-shadow:
+        0 0 15px rgba(255,255,255,0.3),
+        0 0 35px rgba(165,185,255,0.4);
+}
+
+.description {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 20px;
+
+    line-height: 1.7;
+
+    color: #d5def5;
+
+    max-width: 480px;
+
+    margin: 0 auto 30px;
+}
+
+/* TOMBOL */
+
+button {
+    padding: 15px 30px;
+
+    border: 1px solid rgba(255,255,255,0.6);
+
+    border-radius: 40px;
+
+    background: rgba(255,255,255,0.08);
+
+    color: white;
+
+    font-family: 'Quicksand', sans-serif;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    min-height: 48px;
+}
+
+button:hover {
+    background: white;
+
+    color: #17254c;
+
+    transform: translateY(-3px);
+}
+
+button:active {
+    transform: scale(0.96);
+}
+
+/* SURAT */
+
+.letter {
+    display: none;
+
+    width: 100%;
+    max-width: 450px;
+
+    margin: 35px auto 0;
+
+    padding: 30px 25px;
+
+    background: rgba(255,255,255,0.08);
+
+    border: 1px solid rgba(255,255,255,0.2);
+
+    border-radius: 18px;
+
+    backdrop-filter: blur(12px);
+
+    -webkit-backdrop-filter: blur(12px);
+
+    text-align: left;
+}
+
+.letter.show {
+    display: block;
+
+    animation: appear 1s ease;
+}
+
+.letter-decoration {
+    text-align: center;
+
+    color: #ffe6b5;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 25px;
+}
+
+.letter h2 {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 29px;
+
+    color: #fff0d0;
+
+    margin-bottom: 20px;
+}
+
+.letter p {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 19px;
+
+    line-height: 1.9;
+
+    color: #e5eaff;
+
+    white-space: pre-wrap;
+
+    min-height: 100px;
+}
+
+.letter-footer {
+    margin-top: 30px;
+
+    text-align: right;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    color: #c9d4f2;
+
+    font-size: 17px;
+}
+
+.letter-footer h3 {
+    color: #ffb9ce;
+
+    font-size: 25px;
+
+    margin-top: 5px;
+}
+
+/* ANIMASI SURAT */
+
+@keyframes appear {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+/* HINT */
+
+.hint {
+    margin-top: 35px;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    color: #aebde1;
+
+}
+
+/* PEGUNUNGAN */
+
+.mountain {
+    position: absolute;
+
+    bottom: 0;
+
+    width: 100%;
+
+    height: 160px;
+
+    pointer-events: none;
+}
+
+.mountain-back {
+    background: #17213b;
+
+    clip-path: polygon(
+        0 100%,
+        0 60%,
+        20% 20%,
+        40% 65%,
+        60% 15%,
+        80% 60%,
+        100% 25%,
+        100% 100%
+    );
+}
+
+.mountain-front {
+    background: #0b132b;
+
+    height: 110px;
+
+    clip-path: polygon(
+        0 100%,
+        0 70%,
+        30% 35%,
+        50% 75%,
+        75% 30%,
+        100% 65%,
+        100% 100%
+    );
+}
+
+/* FOOTER */
+
+.footer {
+    position: absolute;
+
+    bottom: 15px;
+
+    z-index: 6;
+
+    width: 100%;
+
+    text-align: center;
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+    color: #8190b5;
+}
+
+/* EFEK KLIK */
+
+.sparkle {
+    position: absolute;
+
+    z-index: 10;
+
+    pointer-events: none;
+
+    color: #fff4d6;
+
+    font-size: 20px;
+
+    animation: sparkleEffect 1.2s ease forwards;
+}
+
+@keyframes sparkleEffect {
+
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(0.5);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-45px) scale(1.5);
+    }
+
+}
+
+/* HATI */
+
+.floating-heart {
+    position: absolute;
+
+    z-index: 10;
+
+    pointer-events: none;
+
+    color: #ffb5cb;
+
+    animation: heartFloat 2s ease forwards;
+}
+
+@keyframes heartFloat {
+
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(0.5);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-120px) scale(1.5);
+    }
+
+}
+
+/* RESPONSIVE HP */
+
+@media (max-width: 600px) {
+
+    .moon {
+        width: 65px;
+        height: 65px;
+
+        top: 7%;
+        right: 10%;
+    }
+
+    .content {
+        padding: 35px 10px;
+    }
+
+    .subtitle {
+        font-size: 9px;
+        letter-spacing: 3px;
+    }
+
+    .description {
+        font-size: 17px;
+    }
+
+    .letter {
+        padding: 22px 18px;
+    }
+
+    .letter p {
+        font-size: 17px;
+    }
+
+    .mountain {
+        height: 110px;
+    }
+
+}
+
+/* AKSESIBILITAS */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+    }
+
+}
